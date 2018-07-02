@@ -32,6 +32,7 @@ static bool popup;//gets from plist
 //Respring popup
 %hook SpringBoard //hook what header you wanna tweak
 - (void)applicationDidFinishLaunching:(id)application{ //"-" indicates that the method is an instance method, as opposed to a class method "(void)" indicates the return type {This can be found with FLEXible or in headers}
+%orig;
 if(popup){ //This basically says "if popup is enabled then ..."
     %orig; //Overrides what the original code was
 
@@ -43,8 +44,6 @@ if(popup){ //This basically says "if popup is enabled then ..."
     otherButtonTitles:nil]; //Hides the other button
 
     [alert show]; //Shows the alert
-}
-else {%orig;} //Says if popup isn't enabled then use the original code
 }
 %end
 //End respring popup
